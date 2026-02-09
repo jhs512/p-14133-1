@@ -24,6 +24,12 @@ class PostController(
         return postService.findById(id)!!
     }
 
+    @Transactional(readOnly = true)
+    @GetMapping("/{id}/withShareLock")
+    fun getItemWithShareLock(@PathVariable id: Int): Post {
+        return postService.findWithShareLockById(id)!!
+    }
+
     @GetMapping("/byUsername/{username}")
     fun getItem(@PathVariable username: String): Post {
         return postService.findByUsername(username)!!

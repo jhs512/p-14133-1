@@ -25,4 +25,7 @@ class PostService(
 
     fun findByUsername(username: String): Post? =
         postRepository.findByUsername(username)
+
+    fun findWithShareLockById(id: Int): Post? =
+        postRepository.findWithShareLockById(id)
 }
