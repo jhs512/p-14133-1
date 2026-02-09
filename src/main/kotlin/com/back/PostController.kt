@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController
 class PostController(
     private val postService: PostService
 ) {
-    @Transactional(readOnly = true)
     @GetMapping
+    @Transactional(readOnly = true)
     fun getItems(): List<Post> {
         return postService.findAll()
     }
@@ -22,5 +22,10 @@ class PostController(
     @GetMapping("/{id}")
     fun getItem(@PathVariable id: Int): Post {
         return postService.findById(id)!!
+    }
+
+    @GetMapping("/byUsername/{username}")
+    fun getItem(@PathVariable username: String): Post {
+        return postService.findByUsername(username)!!
     }
 }
