@@ -35,6 +35,8 @@ class PostService(
     fun modifyOptimistic(id: Int): Post {
         val post = findById(id)
 
+        Thread.sleep(3_0000)
+
         return post?.apply {
             username = "${username}!"
         } ?: throw NoSuchElementException("Post not found with id: $id")
