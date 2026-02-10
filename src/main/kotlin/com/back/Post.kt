@@ -1,14 +1,13 @@
 package com.back
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
 class Post(
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
-    val username: String
+    var username: String,
+    @field:Version
+    var version: Int = 0,
 )
