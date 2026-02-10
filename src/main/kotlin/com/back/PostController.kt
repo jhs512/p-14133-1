@@ -30,6 +30,12 @@ class PostController(
         return postService.findWithShareLockById(id)!!
     }
 
+    @Transactional
+    @GetMapping("/{id}/withWriteLock")
+    fun getItemWithWriteLock(@PathVariable id: Int): Post {
+        return postService.findWithWriteLockById(id)!!
+    }
+
     @GetMapping("/byUsername/{username}")
     fun getItem(@PathVariable username: String): Post {
         return postService.findByUsername(username)!!

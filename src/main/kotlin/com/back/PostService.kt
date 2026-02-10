@@ -28,4 +28,7 @@ class PostService(
 
     fun findWithShareLockById(id: Int): Post? =
         postRepository.findWithShareLockById(id)
+
+    fun findWithWriteLockById(id: Int): Post? =
+        postRepository.findWithWriteLockById(id)
 }
